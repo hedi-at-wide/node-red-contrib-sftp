@@ -1,13 +1,13 @@
 {
   "name": "@widetech/node-red-contrib-sftp",
-  "version": "0.0.8",
-  "description": "An SFTP client for node-red, a wrapper for ssh2-sftp-client. Customised by WideTech",
+  "version": "0.0.9",
+  "description": "An SFTP client for node-red. Parameters can be set before the call.",
   "main": "sftp.js",
   "scripts": {
     "test": ""
   },
   "dependencies": {
-    "ssh2-sftp-client": "2.1.0"
+    "ssh2-sftp-client": "10.0.3"
   },
   "repository": {
     "type": "git",

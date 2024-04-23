@@ -18,8 +18,6 @@
 	  this.port = config.port;
 	  this.username = config.username;
 	  this.password = config.password;
-	  
-      //return this.host = config.host;
     };
 	
     SFTPNode = function(config) {
@@ -56,10 +54,10 @@
 			if(debug) {node.warn(node);}
 			
 			sftp.connect({
-				host: node.server.host,
-				port: node.server.port,
-				username: node.server.username,
-				password: node.server.password
+				host: msg.sftp_host || node.server.host,
+				port: msg.sftp_port || node.server.port,
+				username: msg.sftp_username || node.server.username,
+				password: msg.sftp_password || node.server.password
 			}).then(() => {
 				
 				this.method = msg.method || node.method;
@@ -82,7 +80,7 @@
 					case "list":
 						return sftp.list(this.remoteFilePath);
 					case "get":
-						return sftp.get(this.remoteFilePath, this.useCompression, this.encoding);
+						return sftp.get(this.remoteFilePath, this.localFilePath, this.useCompression, this.encoding);
 					case "put":
 						return sftp.put(this.localFilePath, this.remoteFilePath, this.useCompression, this.encoding);
 					case "mkdir":
@@ -139,7 +137,7 @@
 	  
     };
     RED.nodes.registerType("SFTP-credentials", SFTPCredentialsNode);
-    return RED.nodes.registerType("SFTP-main", SFTPNode);
+    return RED.nodes.registerType("SFTP-w-params", SFTPNode);
   };
 
 }).call(this);
