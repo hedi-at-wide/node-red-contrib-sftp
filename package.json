@@ -1,5 +1,5 @@
 {
-  "name": "@widetech/node-red-contrib-sftp",
+  "name": "@hd_at_wide/node-red-contrib-sftp",
   "version": "0.0.9",
   "description": "An SFTP client for node-red. Parameters can be set before the call.",
   "main": "sftp.js",
